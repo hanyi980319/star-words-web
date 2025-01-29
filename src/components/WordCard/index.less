@@ -1,12 +1,11 @@
 .word-card {
-  background: #FFF;
+  background: #FFFFFF;
   width: 500px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
-  .word-card-header {
+  .word-card-content {
     text-align: center;
-    margin-bottom: 24px;
 
     .word-title {
       line-height: 32px;
@@ -26,47 +25,49 @@
         color: #666;
       }
     }
-  }
-
-  .word-image {
-    text-align: center;
-    margin: 24px 0;
-
-    img {
-      width: 50%;
-      border-radius: 8px;
+  
+    .word-image {
+      text-align: center;
+      margin: 24px 0;
+  
+      img {
+        width: 50%;
+        border-radius: 8px;
+      }
     }
-  }
-
-  .word-content {
-    text-align: center;
 
     .word-translation {
       font-size: 24px;
+      font-weight: 600;
       margin-bottom: 24px;
     }
+  
+    .example-sentences {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      text-align: left;
+      font-size: 14px;
+      color: #1F2937;
+  
+      .example-sentence {
+        padding: 12px;
+        border-radius: 8px;
+        background-color: #F9FAFB;
+      }
+  
+      .example-sentence-content {
+        margin-bottom: 8px;
+      }
+  
+      .example-sentence-translation {
+      }
+    }  
   }
 
-  .example-sentences {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  .action-btns {
     width: 100%;
-    text-align: left;
-    font-size: 14px;
-    color: #1F2937;
-
-    .example-sentence {
-      padding: 12px;
-      border-radius: 8px;
-      background-color: #F9FAFB;
-    }
-
-    .example-sentence-content {
-      margin-bottom: 8px;
-    }
-
-    .example-sentence-translation {
-    }
+    margin-top: 24px;
   }
 }

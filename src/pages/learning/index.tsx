@@ -4,7 +4,6 @@ import { useState } from "react";
 // components
 import ProgressBar from "@/components/ProgressBar";
 import WordCard from "@/components/WordCard";
-import ActionBar from "@/components/ActionBar";
 
 // styles
 import "./index.less";
@@ -55,7 +54,11 @@ export default function Learning() {
             size="large"
             onClick={handleLastWord}
           />
-          <WordCard data={mockWords[currentWordNum - 1]} />
+          <WordCard
+            data={mockWords[currentWordNum - 1]}
+            onKnow={handleKnow}
+            onUnknown={handleUnknown}
+          />
           <Button
             icon={<RightOutlined />}
             size="large"
@@ -63,11 +66,6 @@ export default function Learning() {
           />
         </Space>
       </div>
-      <ActionBar
-        onKnow={handleKnow}
-        onUnknown={handleUnknown}
-        onBack={handleLastWord}
-      />
     </div>
   );
 }
