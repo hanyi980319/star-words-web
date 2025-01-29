@@ -42,16 +42,17 @@ export default function Learning() {
   };
 
   return (
-    <div className="learningPageContainer">
+    <div className="learning-page-container flex-column-center">
       <ProgressBar
         current={currentWordNum}
         total={totalWordsNum}
       />
-      <div className="wordCardContainer">
+      <div className="word-card-container flex-row-center">
         <Space size="large">
           <Button
-            icon={<LeftOutlined />}
+            icon={<LeftOutlined style={{ fontSize: '32px' }} />}
             size="large"
+            style={{ width: '64px', height: '64px' }}
             onClick={handleLastWord}
           />
           <WordCard
@@ -60,8 +61,9 @@ export default function Learning() {
             onUnknown={handleUnknown}
           />
           <Button
-            icon={<RightOutlined />}
+            icon={<RightOutlined style={{ fontSize: '32px' }} />}
             size="large"
+            style={{ width: '64px', height: '64px' }}
             onClick={handleNextWord}
           />
         </Space>
