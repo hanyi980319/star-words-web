@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '@/App';
-import Learning from '@/pages/learning';
+import Learn from '@/pages/learn';
 
 const router = createBrowserRouter([
   {
@@ -8,8 +8,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/learning',
-    element: <Learning />,
+    path: '/learn',
+    element: <Learn />,
   },
 ]);
 
