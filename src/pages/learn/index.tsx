@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button, message, Space } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { useMediaQuery } from "react-responsive";
 
 // components
 import Layout from "@/layouts";
@@ -18,6 +19,8 @@ import { mockWords } from "@/mock";
  * @returns 
  */
 export default function Learn() {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   const [currentWordNum, setCurrentWordNum] = useState<number>(1); // 当前单词数
   const totalWordsNum = 10; // 总单词数
 
@@ -51,23 +54,27 @@ export default function Learn() {
         />
         <div className="word-card-container flex-row-center">
           <Space size="large">
-            <Button
-              icon={<LeftOutlined style={{ fontSize: '32px' }} />}
-              size="large"
-              style={{ width: '64px', height: '64px' }}
-              onClick={handleLastWord}
-            />
+            {!isMobile && (
+              <Button
+                icon={<LeftOutlined style={{ fontSize: '32px' }} />}
+                size="large"
+                style={{ width: '64px', height: '64px' }}
+                onClick={handleLastWord}
+              />
+            )}
             <WordCard
               data={mockWords[currentWordNum - 1]}
               onKnow={handleKnow}
               onUnknown={handleUnknown}
             />
-            <Button
-              icon={<RightOutlined style={{ fontSize: '32px' }} />}
-              size="large"
-              style={{ width: '64px', height: '64px' }}
-              onClick={handleNextWord}
-            />
+            {!isMobile && (
+              <Button
+                icon={<RightOutlined style={{ fontSize: '32px' }} />}
+                size="large"
+                style={{ width: '64px', height: '64px' }}
+                onClick={handleNextWord}
+              />
+            )}
           </Space>
         </div>
       </div>

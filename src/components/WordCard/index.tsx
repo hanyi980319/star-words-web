@@ -2,6 +2,7 @@
 import { FC } from "react"
 import { Card, Button, Space, Image } from "antd"
 import { CheckOutlined, QuestionOutlined, SoundOutlined } from "@ant-design/icons"
+import { useMediaQuery } from "react-responsive";
 
 // types
 import { WordType } from "@/types/word";
@@ -15,16 +16,9 @@ interface WordCardProps {
   onUnknown?: () => void;
 }
 
-/**
- * @name 单词卡片
- * @param {WordType} data - 单词数据
- * @param {Function} onKnow - 认识单词
- * @param {Function} onUnknown - 不认识单词
- * @returns 
- */
-const WordCard: FC<WordCardProps> = ({ data, onKnow, onUnknown }) => {
+const WordCardContent: FC<WordCardProps> = ({ data, onKnow, onUnknown }) => {
   return (
-    <Card className="word-card flex-column-center">
+    <>
       <div className="word-card-content flex-column-center">
         <div className="word-title">{data.word}</div>
         <div className="word-pronunciation">
@@ -65,7 +59,31 @@ const WordCard: FC<WordCardProps> = ({ data, onKnow, onUnknown }) => {
           </Button>
         </Space>
       </div>
-    </Card>
+    </>
+  )
+}
+
+/**
+ * @name 单词卡片
+ * @param {WordType} data - 单词数据
+ * @param {Function} onKnow - 认识单词
+ * @param {Function} onUnknown - 不认识单词
+ * @returns 
+ */
+const WordCard: FC<WordCardProps> = ({ data, onKnow, onUnknown }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
+  return (
+    <>
+      {!isMobile && (
+        <Card className="word-card flex-column-center">
+          <WordCardContent data={data} onKnow={onKnow} onUnknown={onUnknown} />
+        </Card>
+      )}
+      {isMobile && (
+        <WordCardContent data={data} onKnow={onKnow} onUnknown={onUnknown} />
+      )}
+    </>
   )
 }
 

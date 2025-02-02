@@ -8,7 +8,7 @@ export const SIDE_NAV_LIST = [
     label: '学习',
   },
   {
-    key: '/more',
+    key: '/',
     icon: MORE_ICON,
     label: '更多',
   },

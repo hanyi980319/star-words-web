@@ -1,5 +1,9 @@
+// libs
+import { useMediaQuery } from 'react-responsive';
+
 // components
-import SideNav from './components/SideNav';
+import PCNav from './components/PCNav';
+import MobileNav from './components/MobileNav';
 
 // styles
 import './index.less';
@@ -14,11 +18,14 @@ interface LayoutProps {
  * @returns 
  */
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   return (
     <div className="app-layout">
-      <SideNav />
+      {!isMobile && <PCNav />}
       <div className="app-content">
         {children}
+        {isMobile && <MobileNav />}
       </div>
     </div>
   );

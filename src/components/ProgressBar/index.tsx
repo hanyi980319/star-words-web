@@ -1,8 +1,7 @@
 // libs
 import { FC } from "react";
-import { Link } from 'react-router-dom';
-import { Button, Progress } from "antd";
-import { CloseOutlined, FireOutlined } from "@ant-design/icons";
+import { Progress } from "antd";
+import { FireOutlined } from "@ant-design/icons";
 
 // styles
 import "./index.less";
@@ -27,9 +26,6 @@ const ProgressBar: FC<ProgressBarProps> = ({
   return (
     <div className="progressBar">
       <div className="progressBarContent">
-        <Link to="/">
-          <Button icon={<CloseOutlined />} />
-        </Link>
         <div className="progress">
           <Progress percent={progress} showInfo={false} />
         </div>

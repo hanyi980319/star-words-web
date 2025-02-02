@@ -9,26 +9,26 @@ import { SIDE_NAV_LIST } from '@/configs';
 import './index.less';
 
 /**
- * @name 侧边导航栏
+ * @name PC端导航栏
  * @returns 
  */
-const SideNav = () => {
+const PCNav = () => {
   const menuItems = SIDE_NAV_LIST;
 
   return (
-    <div className="side-nav">
-      <div className="side-nav-logo">✨ Star Words</div>
-      <div className="side-nav-menu">
+    <div className="pc-nav">
+      <div className="pc-nav-logo">✨ Star Words</div>
+      <div className="pc-nav-menu">
         {menuItems.map((item) => (
           <div
             key={item.key}
-            className={`side-nav-menu-item ${location.pathname === item.key ? 'active' : ''}`}
+            className={`pc-nav-menu-item ${location.pathname === item.key ? 'active' : ''}`}
           >
-            <NavLink to={item.key} className="side-nav-menu-link">
-              <div className="side-nav-menu-icon">
+            <NavLink to={item.key} className="pc-nav-menu-link">
+              <div className="pc-nav-menu-icon">
                 <Image src={item.icon} width={32} />
               </div>
-              <div className="side-nav-menu-label">{item.label}</div>
+              <div className="pc-nav-menu-label">{item.label}</div>
             </NavLink>
           </div>
         ))}
@@ -37,4 +37,4 @@ const SideNav = () => {
   );
 };
 
-export default SideNav; 
+export default PCNav; 
