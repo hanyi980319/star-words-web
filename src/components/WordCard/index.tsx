@@ -29,14 +29,7 @@ const WordCard: FC<WordCardProps> = ({ data, onKnow, onUnknown }) => {
         <div className="word-title">{data.word}</div>
         <div className="word-pronunciation">
           <span className="phonetic">{data.phonetic}</span>
-          <Space>
-            <Button type="text" icon={<SoundOutlined />}>
-              US
-            </Button>
-            <Button type="text" icon={<SoundOutlined />}>
-              UK
-            </Button>
-          </Space>
+          <Button type="text" icon={<SoundOutlined />} />
         </div>
         <div className="word-image">
           <Image src={data.image} preview={false} />
@@ -45,7 +38,10 @@ const WordCard: FC<WordCardProps> = ({ data, onKnow, onUnknown }) => {
         <div className="example-sentences">
           {data.exampleSentences.map((item, index) => (
             <div key={index} className="example-sentence">
-              <div className="example-sentence-content">{item.content}</div>
+              <div className="example-sentence-content flex-row-center">
+                <span className="example-sentence-content-text">{item.content}</span>
+                <Button type="text" icon={<SoundOutlined />} />
+              </div>
               <div className="example-sentence-translation">{item.translation}</div>
             </div>
           ))}
@@ -53,10 +49,18 @@ const WordCard: FC<WordCardProps> = ({ data, onKnow, onUnknown }) => {
       </div>
       <div className="action-btns flex-row-center">
         <Space size="large">
-          <Button icon={<QuestionOutlined />} onClick={onUnknown}>
+          <Button
+            icon={<QuestionOutlined />}
+            onClick={onUnknown}
+            className="unknown-btn"
+          >
             知りません
           </Button>
-          <Button icon={<CheckOutlined />} onClick={onKnow}>
+          <Button
+            icon={<CheckOutlined />}
+            onClick={onKnow}
+            className="known-btn"
+          >
             知っています
           </Button>
         </Space>

@@ -8,7 +8,7 @@ import './App.less';
 function App() {
   return (
     <div className="home-page-container flex-column-center">
-      <Link to="/learning">
+      <Link to="/learn">
         <Button type="primary">Star Words!</Button>
       </Link>
     </div>

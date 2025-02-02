@@ -44,7 +44,7 @@ export default function Learn() {
 
   return (
     <Layout>
-      <div className="flex-column-center">
+      <div className="learn-container flex-column-center">
         <ProgressBar
           current={currentWordNum}
           total={totalWordsNum}
